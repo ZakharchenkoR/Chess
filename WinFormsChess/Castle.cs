@@ -130,7 +130,7 @@ namespace WinFormsChess
                     {
                         Position_X = x;
                         Positiont_Y = y;
-                        Game.SuccessfulMove = false;
+                        Game.SuccessfulMove = true;
                         break;
                     }
                     else
@@ -147,7 +147,7 @@ namespace WinFormsChess
                     {
                         Position_X = x;
                         Positiont_Y = y;
-                        Game.SuccessfulMove = false;
+                        Game.SuccessfulMove = true;
                         break;
                     }
                     else
@@ -164,7 +164,7 @@ namespace WinFormsChess
                     {
                         Position_X = x;
                         Positiont_Y = y;
-                        Game.SuccessfulMove = false;
+                        Game.SuccessfulMove = true;
                         break;
                     }
                     else
