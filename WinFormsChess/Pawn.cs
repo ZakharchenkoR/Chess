@@ -33,39 +33,61 @@ namespace WinFormsChess
             if(!(is_black))
             {
                 if (x != Position_X)
+                {
+                    Game.SuccessfulMove = false;
                     return;
+                }
                 else if (y < Positiont_Y)
+                {
+                    Game.SuccessfulMove = false;
                     return;
+                }
                 else if (Positiont_Y == 1 && y == Positiont_Y + 2)
                 {
                     Position_X = x;
                     Positiont_Y = y;
+                    Game.SuccessfulMove = true;
                 }
                 else if (y > Positiont_Y + 1)
+                {
+                    Game.SuccessfulMove = false;
                     return;
+                }
                 else
                 {
                     Position_X = x;
                     Positiont_Y = y;
+                    Game.SuccessfulMove = true;
                 }
             }
             else
             {
                 if (x != Position_X)
+                {
+                    Game.SuccessfulMove = false;
                     return;
+                }
                 else if (y > Positiont_Y)
+                {
+                    Game.SuccessfulMove = false;
                     return;
+                }
                 else if (Positiont_Y == 6 && y == Positiont_Y - 2)
                 {
                     Position_X = x;
                     Positiont_Y = y;
+                    Game.SuccessfulMove = true;
                 }
                 else if (y < Positiont_Y - 1)
+                {
+                    Game.SuccessfulMove = false;
                     return;
+                }
                 else
                 {
                     Position_X = x;
                     Positiont_Y = y;
+                    Game.SuccessfulMove = true;
                 }
             }
             

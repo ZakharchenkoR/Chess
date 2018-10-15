@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WinFormsChess
 {
@@ -131,7 +132,12 @@ namespace WinFormsChess
                     {
                         Position_X = x;
                         Positiont_Y = y;
+                        Game.SuccessfulMove = true;
                         break;
+                    }
+                    else
+                    {
+                        Game.SuccessfulMove = false;
                     }
 
                 }
@@ -144,7 +150,12 @@ namespace WinFormsChess
                     {
                         Position_X = x;
                         Positiont_Y = y;
+                        Game.SuccessfulMove = true;
                         break;
+                    }
+                    else
+                    {
+                        Game.SuccessfulMove = false;
                     }
                 }
             }
@@ -156,7 +167,12 @@ namespace WinFormsChess
                     {
                         Position_X = x;
                         Positiont_Y = y;
+                        Game.SuccessfulMove = true;
                         break;
+                    }
+                    else
+                    {
+                        Game.SuccessfulMove = false;
                     }
                 }
             }
@@ -168,7 +184,12 @@ namespace WinFormsChess
                     {
                         Position_X = x;
                         Positiont_Y = y;
+                        Game.SuccessfulMove = true;
                         break;
+                    }
+                    else
+                    {
+                        Game.SuccessfulMove = false;
                     }
                 }
             }

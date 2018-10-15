@@ -19,12 +19,14 @@ namespace WinFormsChess
         List<Figures> figures;
         public int Position { get; set; }
         public bool Take_Paste { get; set; }
+        public bool Black_or_White;
         public Chess()
         {
             InitializeComponent();
             Take_Paste = true;
             game = new Game();
             box = new PictureBox();
+            Black_or_White = true;
             figures =  new List<Figures>()
             {
                 new Pawn(0,1,false),
@@ -175,55 +177,102 @@ namespace WinFormsChess
         // собитие клика(взять-установить фигуру)
         private void PanelChess_MouseClick(object sender, MouseEventArgs e)
         {
+
             int x;
             int y;
-            if(Take_Paste)//взять фигуру
+            if (Take_Paste)//взять фигуру
             {
                 x = game.Retutn_Coordinats(e.X);
                 y = game.Retutn_Coordinats(e.Y);
-                for (int i = 0; i < figures.Count; i++)
+                if (Black_or_White)//ход белих
                 {
-                    if(y == figures[i].Positiont_Y && x == figures[i].Position_X)
+                    if (!game.Black_Or_Whiite(figures, x, y))
                     {
-                        Position = i;
-                        Take_Paste = false;
-                        break;
+                        for (int i = 0; i < figures.Count; i++)
+                        {
+                            if (y == figures[i].Positiont_Y && x == figures[i].Position_X)
+                            {
+                                Position = i;
+                                Take_Paste = false;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Now white move!");
+                    }
+
+                }
+                else
+                {
+                    if (game.Black_Or_Whiite(figures, x, y))//хoд чорних
+                    {
+                        for (int i = 0; i < figures.Count; i++)
+                        {
+                            if (y == figures[i].Positiont_Y && x == figures[i].Position_X)
+                            {
+                                Position = i;
+                                Take_Paste = false;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Now black move!");
                     }
                 }
             }
             else//установить фигуру
             {
                 //ход фигур
-                    if (game.Empty_Cage(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)))
+                if (game.Empty_Cage(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)))
+                {
+                    if (figures[Position].Cheking_Road)
                     {
-                       if(figures[Position].Cheking_Road)
-                         {
-                            if(game.Free_Road(figures,
-                                               figures[Position].Position_X,
-                                               figures[Position].Positiont_Y,
-                                               game.Retutn_Coordinats(e.X),
-                                               game.Retutn_Coordinats(e.Y)))
-                                 {
-                                     figures[Position].Move(game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y));
-                                     Drow_ALL();
-                                     Take_Paste = true;
-                                }
-                            else
-                                {
-                                    MessageBox.Show("The move is not possible!");
-                                    Take_Paste = true;
-                                }
-                         }
-                       else
+                        if (game.Free_Road(figures,
+                                           figures[Position].Position_X,
+                                           figures[Position].Positiont_Y,
+                                           game.Retutn_Coordinats(e.X),
+                                           game.Retutn_Coordinats(e.Y)))
+                        {
+                            figures[Position].Move(game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y));
+                            Drow_ALL();
+                            Take_Paste = true;
+                            if(!game.Black_Or_Whiite(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)) && Game.SuccessfulMove)
                             {
-                                figures[Position].Move(game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y));
-                                Drow_ALL();
-                                Take_Paste = true;
+                                Black_or_White = false;
                             }
+                            else if(game.Black_Or_Whiite(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)) && Game.SuccessfulMove)
+                            {
+                                Black_or_White = true;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("The move is not possible!");
+                            Take_Paste = true;
+                        }
                     }
-                    //атака фигур
-                    else if(figures[Position].is_black != game.Black_Or_Whiite(figures,game.Retutn_Coordinats(e.X),game.Retutn_Coordinats(e.Y)))
+                    else
                     {
+                        figures[Position].Move(game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y));
+                        Drow_ALL();
+                        Take_Paste = true;
+                        if (!game.Black_Or_Whiite(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)) && Game.SuccessfulMove)
+                        {
+                            Black_or_White = false;
+                        }
+                        else if (game.Black_Or_Whiite(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)) && Game.SuccessfulMove)
+                        {
+                            Black_or_White = true;
+                        }
+                    }
+                }
+                //атака фигур
+                else if (figures[Position].is_black != game.Black_Or_Whiite(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)))
+                {
                     if (figures[Position].Cheking_Road)
                     {
                         if (game.Free_Road(figures,
@@ -235,7 +284,15 @@ namespace WinFormsChess
                             figures[Position].Attack(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y));
                             Drow_ALL();
                             Take_Paste = true;
-                        }
+                                if (!game.Black_Or_Whiite(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)) && Game.SuccessfulMove)
+                                {
+                                    Black_or_White = false;
+                                }
+                                else if (game.Black_Or_Whiite(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)) && Game.SuccessfulMove)
+                                {
+                                    Black_or_White = true;
+                                }
+                            }
                         else
                         {
                             MessageBox.Show("The move is not possible!");
@@ -247,17 +304,25 @@ namespace WinFormsChess
                         figures[Position].Attack(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y));
                         Drow_ALL();
                         Take_Paste = true;
+                            if (!game.Black_Or_Whiite(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)) && Game.SuccessfulMove)
+                            {
+                                Black_or_White = false;
+                            }
+                            else if (game.Black_Or_Whiite(figures, game.Retutn_Coordinats(e.X), game.Retutn_Coordinats(e.Y)) && Game.SuccessfulMove)
+                            {
+                                Black_or_White = true;
+                            }
                     }
-                    }
-                    else
-                    {
-                        MessageBox.Show("The move is not possible!");
-                        Drow_ALL();
-                        Take_Paste = true;
+                }
+                else
+                {
+                    MessageBox.Show("The move is not possible!");
+                    Drow_ALL();
+                    Take_Paste = true;
 
-                    }
-                
-               
+                }
+
+
             }
         }
     }

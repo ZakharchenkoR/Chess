@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WinFormsChess
 {
@@ -174,6 +175,7 @@ namespace WinFormsChess
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
                 return;
             }
 
@@ -181,48 +183,61 @@ namespace WinFormsChess
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
                 return;
             }
-
+            else
             if (x == Position_X - 2 && y == Positiont_Y + 1)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
                 return;
             }
+            else
             if (x == Position_X + 2 && y == Positiont_Y - 1)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
                 return;
             }
-
+            else
             if (x == Position_X + 1 && y == Positiont_Y + 2)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
                 return;
             }
-
+            else
             if (x == Position_X - 1 && y == Positiont_Y - 2)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
                 return;
             }
-
+            else
             if (x == Position_X - 1 && y == Positiont_Y + 2)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
                 return;
             }
-
+            else
             if (x == Position_X + 1 && y == Positiont_Y - 2)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
                 return;
+            }
+            else
+            {
+                Game.SuccessfulMove = false;
+                MessageBox.Show("This mowe is not try!");
             }
 
         }

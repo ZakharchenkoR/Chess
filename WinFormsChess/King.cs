@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WinFormsChess
 {
@@ -163,45 +164,58 @@ namespace WinFormsChess
 
         public override void Move(int x, int y)
         {
-            if(x == Position_X +1 && y == Positiont_Y)
+            if (x == Position_X + 1 && y == Positiont_Y)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
             }
-            else if(x == Position_X - 1 && y == Positiont_Y)
+            else if (x == Position_X - 1 && y == Positiont_Y)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
             }
-            else if( x == Position_X && y == Positiont_Y + 1)
+            else if (x == Position_X && y == Positiont_Y + 1)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
             }
-            else if(x == Position_X && y == Positiont_Y - 1)
+            else if (x == Position_X && y == Positiont_Y - 1)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
             }
-            else if ( x == Position_X + 1 && y == Positiont_Y +1)
+            else if (x == Position_X + 1 && y == Positiont_Y + 1)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
             }
-            else if(x == Position_X +1 && y == Positiont_Y - 1)
+            else if (x == Position_X + 1 && y == Positiont_Y - 1)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
             }
-            else if(x == Position_X - 1 && y == Positiont_Y - 1)
+            else if (x == Position_X - 1 && y == Positiont_Y - 1)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
             }
-            else if(x == Position_X - 1 && y == Positiont_Y + 1)
+            else if (x == Position_X - 1 && y == Positiont_Y + 1)
             {
                 Position_X = x;
                 Positiont_Y = y;
+                Game.SuccessfulMove = true;
+            }
+            else
+            {
+                Game.SuccessfulMove = false;
+                MessageBox.Show("This mowe is not try!");
             }
         }
     }

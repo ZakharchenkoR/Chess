@@ -10,6 +10,7 @@ namespace WinFormsChess
 {
     class Game
     {
+        public static  bool SuccessfulMove { get; set; }//ход удачний или нет
         public bool Empty_Cage(List<Figures> list,int x,int y)//проверка пустое ли поле
         {
             
