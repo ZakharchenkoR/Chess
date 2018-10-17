@@ -32,11 +32,12 @@
             this.CloseGame = new System.Windows.Forms.Button();
             this.StartGame = new System.Windows.Forms.Button();
             this.PanelChess = new System.Windows.Forms.Panel();
+            this.information = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CloseGame
             // 
-            this.CloseGame.Location = new System.Drawing.Point(468, 82);
+            this.CloseGame.Location = new System.Drawing.Point(468, 187);
             this.CloseGame.Name = "CloseGame";
             this.CloseGame.Size = new System.Drawing.Size(81, 38);
             this.CloseGame.TabIndex = 0;
@@ -62,6 +63,16 @@
             this.PanelChess.TabIndex = 2;
             this.PanelChess.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PanelChess_MouseClick);
             // 
+            // information
+            // 
+            this.information.Location = new System.Drawing.Point(468, 384);
+            this.information.Name = "information";
+            this.information.Size = new System.Drawing.Size(81, 38);
+            this.information.TabIndex = 3;
+            this.information.Text = "Information";
+            this.information.UseVisualStyleBackColor = true;
+            this.information.Click += new System.EventHandler(this.information_Click);
+            // 
             // Chess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -69,6 +80,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(582, 444);
+            this.Controls.Add(this.information);
             this.Controls.Add(this.PanelChess);
             this.Controls.Add(this.StartGame);
             this.Controls.Add(this.CloseGame);
@@ -87,6 +99,7 @@
         private System.Windows.Forms.Button CloseGame;
         private System.Windows.Forms.Button StartGame;
         private System.Windows.Forms.Panel PanelChess;
+        private System.Windows.Forms.Button information;
     }
 }
 

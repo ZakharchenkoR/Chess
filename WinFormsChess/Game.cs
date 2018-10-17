@@ -11,6 +11,37 @@ namespace WinFormsChess
     class Game
     {
         public static  bool SuccessfulMove { get; set; }//ход удачний или нет
+
+        public bool Black_King_On_Fild(List<Figures> figures)
+        {
+            int count = 0;
+            for (int i = 0; i < figures.Count; i++)
+            {
+                if (figures[i].is_black && figures[i].is_king)
+                    count++;
+                if (count > 0)
+                    break;
+            }
+            if (count > 0)
+                return true;
+            return false;
+        }
+
+        public bool White_King_On_Fild(List<Figures> list)
+        {
+            int count = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (!list[i].is_black && list[i].is_king)
+                    count++;
+                if (count > 0)
+                    break;
+            }
+            if (count > 0)
+                return true;
+            return false;
+        }
+
         public bool Empty_Cage(List<Figures> list,int x,int y)//проверка пустое ли поле
         {
             

@@ -14,6 +14,7 @@ namespace WinFormsChess
             Position_X = x;
             Positiont_Y = y;
             is_black = a;
+            is_king = false;
             Drow = true;
             Cheking_Road = true;
             if (is_black)
@@ -40,7 +41,12 @@ namespace WinFormsChess
 
                                     Position_X = x;
                                     Positiont_Y = y;
+                                    Game.SuccessfulMove = true;
                                     break;
+                                }
+                                else
+                                {
+                                    Game.SuccessfulMove = false;
                                 }
                             }
                         }
@@ -63,7 +69,12 @@ namespace WinFormsChess
 
                                     Position_X = x;
                                     Positiont_Y = y;
+                                    Game.SuccessfulMove = true;
                                     break;
+                                }
+                                else
+                                {
+                                    Game.SuccessfulMove = false;
                                 }
                             }
                         }
@@ -86,7 +97,12 @@ namespace WinFormsChess
 
                                     Position_X = x;
                                     Positiont_Y = y;
+                                    Game.SuccessfulMove = true;
                                     break;
+                                }
+                                else
+                                {
+                                    Game.SuccessfulMove = false;
                                 }
                             }
                         }
@@ -109,7 +125,12 @@ namespace WinFormsChess
 
                                     Position_X = x;
                                     Positiont_Y = y;
+                                    Game.SuccessfulMove = true;
                                     break;
+                                }
+                                else
+                                {
+                                    Game.SuccessfulMove = false;
                                 }
                             }
                         }

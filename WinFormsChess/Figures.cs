@@ -8,7 +8,8 @@ namespace WinFormsChess
 {
     abstract class Figures
     {
-        public bool Cheking_Road { get; set; }
+        public bool Cheking_Road { get; set; }//нада ли проверять для фигури стоит ли на ее пути другая фигура
+        public bool is_king { get; set; }
         public int Position_X {get; set; }
         public int Positiont_Y { get; set; }
         public bool is_black { get; set; }

@@ -15,6 +15,7 @@ namespace WinFormsChess
             Positiont_Y = y;
             Drow = true;
             is_black = a;
+            is_king = false;
             Cheking_Road = true;
             if (is_black)
                 Position_Figyre_On_Picture_Down = 50;
@@ -41,7 +42,12 @@ namespace WinFormsChess
 
                                     Position_X = x;
                                     Positiont_Y = y;
+                                    Game.SuccessfulMove = true;
                                     break;
+                                }
+                                else
+                                {
+                                    Game.SuccessfulMove = false;
                                 }
                             }
                         }
@@ -65,7 +71,12 @@ namespace WinFormsChess
 
                                     Position_X = x;
                                     Positiont_Y = y;
+                                    Game.SuccessfulMove = true;
                                     break;
+                                }
+                                else
+                                {
+                                    Game.SuccessfulMove = false;
                                 }
                             }
                         }
@@ -89,7 +100,12 @@ namespace WinFormsChess
 
                                     Position_X = x;
                                     Positiont_Y = y;
+                                    Game.SuccessfulMove = true;
                                     break;
+                                }
+                                else
+                                {
+                                    Game.SuccessfulMove = false;
                                 }
                             }
                         }
@@ -112,7 +128,12 @@ namespace WinFormsChess
 
                                     Position_X = x;
                                     Positiont_Y = y;
+                                    Game.SuccessfulMove = true;
                                     break;
+                                }
+                                else
+                                {
+                                    Game.SuccessfulMove = false;
                                 }
                             }
                         }
@@ -193,6 +214,7 @@ namespace WinFormsChess
                     }
                 }
             }
+
         }
     }
 }

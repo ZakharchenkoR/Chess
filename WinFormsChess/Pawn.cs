@@ -14,6 +14,7 @@ namespace WinFormsChess
             Position_X = x;
             Positiont_Y = y;
             Drow = true;
+            is_king = false;
             is_black = a;
             Position_Figures_On_Picture = 250;
             if (is_black)
@@ -109,7 +110,12 @@ namespace WinFormsChess
                                 
                                 Position_X = x;
                                 Positiont_Y = y;
+                                Game.SuccessfulMove = true;
                                 break;
+                            }
+                            else
+                            {
+                                Game.SuccessfulMove = false;
                             }
                         }
                     }
@@ -125,7 +131,12 @@ namespace WinFormsChess
                                 list.Remove(list[i]);
                                 Position_X = x;
                                 Positiont_Y = y;
+                                Game.SuccessfulMove = true;
                                 break;
+                            }
+                            else
+                            {
+                                Game.SuccessfulMove = false;
                             }
                         }
                     }
@@ -141,12 +152,16 @@ namespace WinFormsChess
                         {
                             if (x == list[i].Position_X && y == list[i].Positiont_Y)
                             {
-                                list[i].Drow = false;
                                 list.Remove(list[i]);
 
                                 Position_X = x;
                                 Positiont_Y = y;
+                                Game.SuccessfulMove = true;
                                 break;
+                            }
+                            else
+                            {
+                                Game.SuccessfulMove = false;
                             }
                         }
                     }
@@ -159,11 +174,15 @@ namespace WinFormsChess
                         {
                             if (x == list[i].Position_X && y == list[i].Positiont_Y)
                             {
-                                list[i].Drow = false;
                                 list.Remove(list[i]);
                                 Position_X = x;
                                 Positiont_Y = y;
+                                Game.SuccessfulMove = true;
                                 break;
+                            }
+                            else
+                            {
+                                Game.SuccessfulMove = false;
                             }
                         }
                     }

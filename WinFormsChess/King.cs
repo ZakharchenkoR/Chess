@@ -14,6 +14,7 @@ namespace WinFormsChess
             Position_X = x;
             Positiont_Y = y;
             Drow = true;
+            is_king = true;
             is_black = a;
             Cheking_Road = false;
             if (is_black)
@@ -36,7 +37,12 @@ namespace WinFormsChess
 
                             Position_X = x;
                             Positiont_Y = y;
+                            Game.SuccessfulMove = true;
                             break;
+                        }
+                        else
+                        {
+                            Game.SuccessfulMove = false;
                         }
                     }
                 }
@@ -53,8 +59,14 @@ namespace WinFormsChess
 
                             Position_X = x;
                             Positiont_Y = y;
+                            Game.SuccessfulMove = true;
                             break;
                         }
+                        else
+                        {
+                            Game.SuccessfulMove = false;
+                        }
+
                     }
                 }
             }
@@ -70,7 +82,12 @@ namespace WinFormsChess
 
                             Position_X = x;
                             Positiont_Y = y;
+                            Game.SuccessfulMove = true;
                             break;
+                        }
+                        else
+                        {
+                            Game.SuccessfulMove = false;
                         }
                     }
                 }
@@ -87,7 +104,12 @@ namespace WinFormsChess
 
                             Position_X = x;
                             Positiont_Y = y;
+                            Game.SuccessfulMove = true;
                             break;
+                        }
+                        else
+                        {
+                            Game.SuccessfulMove = false;
                         }
                     }
                 }
@@ -104,7 +126,12 @@ namespace WinFormsChess
 
                             Position_X = x;
                             Positiont_Y = y;
+                            Game.SuccessfulMove = true;
                             break;
+                        }
+                        else
+                        {
+                            Game.SuccessfulMove = false;
                         }
                     }
                 }
@@ -121,7 +148,12 @@ namespace WinFormsChess
 
                             Position_X = x;
                             Positiont_Y = y;
+                            Game.SuccessfulMove = true;
                             break;
+                        }
+                        else
+                        {
+                            Game.SuccessfulMove = false;
                         }
                     }
                 }
@@ -138,7 +170,12 @@ namespace WinFormsChess
 
                             Position_X = x;
                             Positiont_Y = y;
+                            Game.SuccessfulMove = true;
                             break;
+                        }
+                        else
+                        {
+                            Game.SuccessfulMove = false;
                         }
                     }
                 }
@@ -155,7 +192,12 @@ namespace WinFormsChess
 
                             Position_X = x;
                             Positiont_Y = y;
+                            Game.SuccessfulMove = true;
                             break;
+                        }
+                        else
+                        {
+                            Game.SuccessfulMove = false;
                         }
                     }
                 }
