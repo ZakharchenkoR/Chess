@@ -13,7 +13,6 @@ namespace WinFormsChess
         {
             Position_X = x;
             Positiont_Y = y;
-            Drow = true;
             is_king = false;
             is_black = a;
             Position_Figures_On_Picture = 250;
@@ -25,7 +24,7 @@ namespace WinFormsChess
             {
                 Position_Figyre_On_Picture_Down = 0;
             }
-            Cheking_Road = false;
+            Cheking_Road = true;
         }
 
         
@@ -48,6 +47,7 @@ namespace WinFormsChess
                     Position_X = x;
                     Positiont_Y = y;
                     Game.SuccessfulMove = true;
+                    Cheking_Road = false;
                 }
                 else if (y > Positiont_Y + 1)
                 {
@@ -78,6 +78,7 @@ namespace WinFormsChess
                     Position_X = x;
                     Positiont_Y = y;
                     Game.SuccessfulMove = true;
+                    Cheking_Road = false;
                 }
                 else if (y < Positiont_Y - 1)
                 {

@@ -51,7 +51,7 @@
             this.StartGame.Name = "StartGame";
             this.StartGame.Size = new System.Drawing.Size(81, 38);
             this.StartGame.TabIndex = 1;
-            this.StartGame.Text = "Start";
+            this.StartGame.Text = "Restart";
             this.StartGame.UseVisualStyleBackColor = true;
             this.StartGame.Click += new System.EventHandler(this.StartGame_Click);
             // 

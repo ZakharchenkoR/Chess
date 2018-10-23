@@ -13,7 +13,6 @@ namespace WinFormsChess
         {
             Position_X = x;
             Positiont_Y = y;
-            Drow = true;
             is_king = false;
             is_black = a;
             Cheking_Road = true;
@@ -23,6 +22,7 @@ namespace WinFormsChess
                 Position_Figyre_On_Picture_Down = 0;
             Position_Figures_On_Picture = 0;
         }
+
         public override void Attack(List<Figures> list, int x, int y)
         {
             if (Position_X > x && y == Positiont_Y)

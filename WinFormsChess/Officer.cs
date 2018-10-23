@@ -13,7 +13,6 @@ namespace WinFormsChess
         {
             Position_X = x;
             Positiont_Y = y;
-            Drow = true;
             is_black = a;
             is_king = false;
             Cheking_Road = true;

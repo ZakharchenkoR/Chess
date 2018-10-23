@@ -15,7 +15,6 @@ namespace WinFormsChess
             Positiont_Y = y;
             is_black = a;
             is_king = false;
-            Drow = true;
             Cheking_Road = true;
             if (is_black)
                 Position_Figyre_On_Picture_Down = 50;
